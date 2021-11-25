@@ -1,38 +1,37 @@
-<div style="margin-left: auto; margin-right: auto">
-  <p id="loginFeedback"></p>
-</div>
 <div class="container-uoc" [@fadeInOut]>
-  <h1>Login</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input matInput="email" [formControl]="email" required placeholder="Ex. pat@example.com">
-        <mat-error *ngIf="email.hasError('pattern') && !email.hasError('required') ">
-          Email not a valid format.
-        </mat-error>
-        <mat-error *ngIf="email.hasError('required')">
-          Email if <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </section>
-    <section>
-      <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [formControl]="password" required>
-        <mat-error *ngIf="password.hasError('minLength') && !password.hasError('required') ">
-          Password must be greater tha 8 characters
-        </mat-error>
-        <mat-error *ngIf="password.hasError('maxLength') && !password.hasError('required') ">
-          Password can be max 16 characters long
-        </mat-error>
-        <mat-error *ngIf="password.invalid">
-          Password is required
-        </mat-error>
-      </mat-form-field>
-    </section>
-    <section>
-      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
-    </section>
-  </form>
+  <mat-card class="mat-elevation-z4">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <section>
+        <mat-form-field appearance="fill">
+          <mat-label >Enter your email</mat-label>
+          <input matInput type="email" [formControl]="email" required placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="email.hasError('pattern') && !email.hasError('required') ">
+            Email not a valid format.
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </section>
+      <section>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput type="password" [formControl]="password" required>
+          <mat-error *ngIf="password.hasError('minLength') && !password.hasError('required') ">
+            Password must be greater tha 8 characters
+          </mat-error>
+          <mat-error *ngIf="password.hasError('maxLength') && !password.hasError('required') ">
+            Password can be max 16 characters long
+          </mat-error>
+          <mat-error *ngIf="password.invalid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+      </section>
+      <section>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+      </section>
+    </form>
+  </mat-card>
 </div>

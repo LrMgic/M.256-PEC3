@@ -1,17 +1,19 @@
 <p>header works!</p>
 
+
+
 <!-- NO AUTH REQUIRED -->
-<div *ngIf="showNoAuthSection">
+<nav mat-tab-nav-bar *ngIf="showNoAuthSection">
   <button (click)="home()">Home</button>
   <button (click)="login()">Login</button>
   <button (click)="register()">Register</button>
-</div>
+</nav>
 
 <!-- AUTH REQUIRED -->
-<div *ngIf="showAuthSection">
+<nav mat-tab-nav-bar *ngIf="showAuthSection">
   <button (click)="home()">Home</button>
   <button (click)="adminPosts()">Admin posts</button>
   <button (click)="adminCategories()">Admin categories</button>
   <button (click)="profile()">Profile</button>
   <button (click)="logout()">Logout</button>
-</div>
+</nav>

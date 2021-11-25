@@ -1,4 +1,12 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducers';
@@ -9,10 +17,30 @@ import { PostDTO } from '../../models/post.dto';
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state(
+        'void',
+        style({
+          opacity: 0.2,
+        })
+      ),
+      transition('void <=> *', animate(1500)),
+    ]),
+  ],
 })
 export class PostsListComponent {
   posts: PostDTO[];
   private userId: string;
+  displayedColumns: string[] = [
+    'postId',
+    'title',
+    'description',
+    'num_likes',
+    'num_dislikes',
+    'actions',
+  ];
+  dataSource: any;
 
   constructor(private router: Router, private store: Store<AppState>) {
     this.userId = '';
@@ -36,6 +64,7 @@ export class PostsListComponent {
       this.store.dispatch(
         PostsAction.getPostsByUserId({ userId: this.userId })
       );
+      this.dataSource = new MatTableDataSource<PostDTO>(this.posts);
     }
   }
 

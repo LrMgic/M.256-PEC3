@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -26,12 +28,9 @@ import { UserModule } from './User/user.module';
 
   imports: [
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     AuthModule,
     UserModule,
     CategoryModule,
@@ -51,6 +50,8 @@ import { UserModule } from './User/user.module';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatTableModule,
+    MatTabsModule,
   ],
   providers: [
     {

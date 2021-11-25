@@ -1,3 +1,4 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -15,6 +16,17 @@ import { UserDTO } from '../../models/user.dto';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state(
+        'void',
+        style({
+          opacity: 0.2,
+        })
+      ),
+      transition('void <=> *', animate(1500)),
+    ]),
+  ],
 })
 export class RegisterComponent implements OnInit {
   registerUser: UserDTO;
