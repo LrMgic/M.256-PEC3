@@ -1,7 +1,7 @@
-<div class="container-uoc" [@fadeInOut]>
+<div class="container-uoc" >
   <mat-card class="mat-elevation-z4">
     <h1>Profile</h1>
-    <form [formGroup]="profileForm" (ngSubmit)="updateUser()">
+    <form [formGroup]="profileForm" (ngSubmit)="updateUser()"[@animation]>
       <section>
         <mat-form-field appearance="fill">
           <mat-label>Name:</mat-label>

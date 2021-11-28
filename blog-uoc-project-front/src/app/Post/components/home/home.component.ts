@@ -1,7 +1,7 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { SlideInOutAnimation } from 'src/app/Animations/animaciones';
 import { AppState } from 'src/app/app.reducers';
 import { SharedService } from 'src/app/Shared/Services/shared.service';
 import * as PostsAction from '../../actions';
@@ -12,21 +12,13 @@ import { PostService } from '../../services/post.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state(
-        'void',
-        style({
-          opacity: 0.2,
-        })
-      ),
-      transition('void <=> *', animate(1500)),
-    ]),
-  ],
+  animations: [SlideInOutAnimation],
 })
 export class HomeComponent {
   posts: PostDTO[];
   showButtons: boolean;
+  animationState = 'in';
+  items!: number[];
 
   private userId: string;
 
@@ -90,4 +82,5 @@ export class HomeComponent {
       }
     );
   }
+
 }

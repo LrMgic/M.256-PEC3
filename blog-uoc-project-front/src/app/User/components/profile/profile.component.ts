@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { ChargeAnimation } from 'src/app/Animations/animaciones';
 import { AppState } from 'src/app/app.reducers';
 import * as UserAction from '../../actions';
 import { UserDTO } from '../../models/user.dto';
@@ -15,17 +16,7 @@ import { UserDTO } from '../../models/user.dto';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state(
-        'void',
-        style({
-          opacity: 0.2,
-        })
-      ),
-      transition('void <=> *', animate(1500)),
-    ]),
-  ],
+  animations: [ChargeAnimation],
 })
 export class ProfileComponent implements OnInit {
   profileUser: UserDTO;

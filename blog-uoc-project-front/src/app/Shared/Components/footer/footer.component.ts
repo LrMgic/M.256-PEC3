@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  step = 0;
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  setStep(index: number) {
+    this.step = index;
   }
 
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
 }

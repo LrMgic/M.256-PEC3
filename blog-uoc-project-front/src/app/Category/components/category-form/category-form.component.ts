@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ChargeAnimation } from 'src/app/Animations/animaciones';
 import { AppState } from 'src/app/app.reducers';
 import * as CategoriesAction from '../../actions';
 import { CategoryDTO } from '../../models/category.dto';
@@ -16,17 +17,7 @@ import { CategoryDTO } from '../../models/category.dto';
   selector: 'app-category-form',
   templateUrl: './category-form.component.html',
   styleUrls: ['./category-form.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state(
-        'void',
-        style({
-          opacity: 0.2,
-        })
-      ),
-      transition('void <=> *', animate(1500)),
-    ]),
-  ],
+  animations: [ChargeAnimation],
 })
 export class CategoryFormComponent implements OnInit {
   category: CategoryDTO;

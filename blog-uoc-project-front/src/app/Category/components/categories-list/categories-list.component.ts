@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ChargeAnimation } from 'src/app/Animations/animaciones';
 import { AppState } from 'src/app/app.reducers';
 import * as CategoriesAction from '../../actions';
 import { CategoryDTO } from '../../models/category.dto';
@@ -11,17 +12,7 @@ import { CategoryDTO } from '../../models/category.dto';
   selector: 'app-categories-list',
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state(
-        'void',
-        style({
-          opacity: 0.2,
-        })
-      ),
-      transition('void <=> *', animate(1500)),
-    ]),
-  ],
+  animations: [ChargeAnimation],
 })
 export class CategoriesListComponent {
   categories: CategoryDTO[];

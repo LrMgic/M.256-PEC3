@@ -13,6 +13,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { ChargeAnimation } from 'src/app/Animations/animaciones';
 import { AppState } from 'src/app/app.reducers';
 import * as AuthAction from '../actions';
 import { AuthDTO } from '../models/auth.dto';
@@ -21,17 +22,7 @@ import { AuthDTO } from '../models/auth.dto';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state(
-        'void',
-        style({
-          opacity: 0.2,
-        })
-      ),
-      transition('void <=> *', animate(1500)),
-    ]),
-  ],
+  animations: [ChargeAnimation],
 })
 export class LoginComponent implements OnInit {
   email: FormControl;

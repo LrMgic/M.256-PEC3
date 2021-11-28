@@ -1,19 +1,32 @@
-<p>header works!</p>
-
-
-
-<!-- NO AUTH REQUIRED -->
-<nav mat-tab-nav-bar *ngIf="showNoAuthSection">
-  <button (click)="home()">Home</button>
-  <button (click)="login()">Login</button>
-  <button (click)="register()">Register</button>
-</nav>
-
-<!-- AUTH REQUIRED -->
-<nav mat-tab-nav-bar *ngIf="showAuthSection">
-  <button (click)="home()">Home</button>
-  <button (click)="adminPosts()">Admin posts</button>
-  <button (click)="adminCategories()">Admin categories</button>
-  <button (click)="profile()">Profile</button>
-  <button (click)="logout()">Logout</button>
-</nav>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drower class="sidenav" [ngClass]="{hidden: !(isHandset | async)!.matches}" fixedInVewport="false"
+    [attr.role]="isHandset ? 'dialog' : 'navigation'" [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+    [opened]="!(isHandset | async)!.matches">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list *ngFor="let link of linckList">
+      <a mat-list-item [routerLink]="link.link">{{link.label}}</a>
+    </mat-nav-list>
+    <mat-nav-list *ngIf="showLogoutButton">
+      <a mat-list-item (click)="logout()">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toogle sidenav" mat-icon-button (click)="drower.toggle()"
+        *ngIf="(isHandset | async)!.matches">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>PEC 4</span>
+      <nav mat-tab-nav-bar *ngIf="!(isHandset | async)!.matches">
+        <a mat-tab-link *ngFor="let link of linckList" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive"
+          [active]="rla.isActive">{{link.label}}
+        </a>
+        <a mat-tab-link *ngIf="showLogoutButton" (click)="logout()">Logout</a>
+      </nav>
+      <span [ngStyle] = "{'text-align': 'center'}">Gerard Vidal Gonzalez</span>
+    </mat-toolbar>
+    <div [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

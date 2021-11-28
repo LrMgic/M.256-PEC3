@@ -1,0 +1,44 @@
+.style1 {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.style2 {
+  display: flex;
+  flex-direction: row;
+  flex: 3;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.mat-list {
+  background-color: rgba(94, 87, 87, 0.521);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  height: auto;
+}
+h2 {
+  margin: 0;
+}
+.mat-list-item {
+  font-size: 12px;
+  height: 25px;
+  padding: none;
+}
+
+.style3 {
+  flex: 1;
+}
+
+.style3 img {
+  display: block;
+  margin: auto 10px;
+  width: 100%;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+  border-radius: 5px;
+}

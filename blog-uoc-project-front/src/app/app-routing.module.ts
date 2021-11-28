@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Auth/components/login.component';
@@ -14,48 +15,60 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    data: { animation: 'HomePage' },
   },
   {
     path: 'login',
     component: LoginComponent,
+    data: { animation: 'LoginPage' },
   },
   {
     path: 'register',
     component: RegisterComponent,
+    data: { animation: 'RegisterPage' },
   },
   {
     path: 'home',
     component: HomeComponent,
+    data: { animation: 'HomePage' },
   },
   {
     path: 'posts',
     component: PostsListComponent,
     canActivate: [AuthGuard],
+    data: { animation: 'PostPage' },
   },
   {
     path: 'user/post/:id',
     component: PostFormComponent,
     canActivate: [AuthGuard],
+    data: { animation: 'PostIDPage' },
   },
   {
     path: 'categories',
     component: CategoriesListComponent,
     canActivate: [AuthGuard],
+    data: { animation: 'CategoriesPage' },
   },
   {
     path: 'user/category/:id',
     component: CategoryFormComponent,
     canActivate: [AuthGuard],
+    data: { animation: 'CategoriesIdPage' },
   },
   {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard],
+    data: { animation: 'PerfilePage' },
   },
 ];
 
+export const appRouting = RouterModule.forRoot(routes);
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule],
+  declarations: [],
 })
 export class AppRoutingModule {}

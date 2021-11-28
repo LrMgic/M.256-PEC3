@@ -8,6 +8,7 @@ body {
 }
 
 .container-uoc {
+  min-height: 75vh;
   font-size: 16px;
   display: flex;
   justify-content: center;
@@ -15,7 +16,6 @@ body {
   flex-direction: column;
   padding: 30px;
 }
-
 
 table {
   border-radius: 5%;

@@ -1,53 +1,58 @@
-<div class="container-uoc" [@fadeInOut]>
+<div class="container-uoc" >
   <h2>Post List</h2>
 
-  <table mat-table [dataSource]="posts" class="mat-elevation-z8" >
+  <table mat-table [dataSource]="posts" class="mat-elevation-z8"[@animation]>
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- ID Column -->
-    <ng-container matColumnDef="postId" >
-      <th mat-header-cell *matHeaderCellDef [ngStyle] = "{'text-align': 'center'}"> ID </th>
+    <ng-container matColumnDef="postId">
+      <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align': 'center'}"> ID </th>
       <td mat-cell *matCellDef="let post"> {{post.postId}} </td>
     </ng-container>
 
     <!-- TITLE Column -->
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef [ngStyle] = "{'text-align': 'center'}"> TITLE </th>
+      <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align': 'center'}"> TITLE </th>
       <td mat-cell *matCellDef="let post"> {{post.title}} </td>
     </ng-container>
 
     <!-- DESCRIPTION Column -->
     <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef [ngStyle] = "{'text-align': 'center'}"> DESCRIPTION </th>
+      <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align': 'center'}"> DESCRIPTION </th>
       <td mat-cell *matCellDef="let post"> {{post.description}} </td>
     </ng-container>
 
     <!-- Number of likes Column -->
     <ng-container matColumnDef="num_likes">
-      <th mat-header-cell *matHeaderCellDef [ngStyle] = "{'text-align': 'center'}"> NUM LIKES </th>
+      <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align': 'center'}"> NUM LIKES </th>
       <td mat-cell *matCellDef="let post"> {{post.num_likes}} </td>
     </ng-container>
 
-        <!-- Number of dislikes Column -->
-        <ng-container matColumnDef="num_dislikes">
-          <th mat-header-cell *matHeaderCellDef [ngStyle] = "{'text-align': 'center'}"> NUM DISLIKES </th>
-          <td mat-cell *matCellDef="let post"> {{post.num_dislikes}} </td>
-        </ng-container>
+    <!-- Number of dislikes Column -->
+    <ng-container matColumnDef="num_dislikes">
+      <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align': 'center'}"> NUM DISLIKES </th>
+      <td mat-cell *matCellDef="let post"> {{post.num_dislikes}} </td>
+    </ng-container>
 
-      <!-- ACTIONS Column -->
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef [ngStyle] = "{'text-align': 'center'}"> <button (click)="createPost()"><mat-icon aria-hidden="true" aria-label="add icon">add</mat-icon></button> </th>
-        <td mat-cell *matCellDef="let post">
-          <button (click)="updatePost(post.postId)"><mat-icon aria-hidden="true" aria-label="edit icon">edit</mat-icon></button>
-          <button (click)="deletePost(post.postId)"><mat-icon aria-hidden="true" aria-label="delete icon">delete</mat-icon></button>
-        </td>
-      </ng-container>
+    <!-- ACTIONS Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef [ngStyle]="{'text-align': 'center'}"> <button (click)="createPost()">
+          <mat-icon aria-hidden="true" aria-label="add icon">add</mat-icon>
+        </button> </th>
+      <td mat-cell *matCellDef="let post">
+        <button (click)="updatePost(post.postId)">
+          <mat-icon aria-hidden="true" aria-label="edit icon">edit</mat-icon>
+        </button>
+        <button (click)="deletePost(post.postId)">
+          <mat-icon aria-hidden="true" aria-label="delete icon">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
 </div>
-

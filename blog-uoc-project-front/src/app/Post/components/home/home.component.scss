@@ -8,6 +8,7 @@ body {
 }
 
 .container-uoc {
+  min-height: 75vh;
   font-size: 16px;
   display: flex;
   justify-content: center;
@@ -40,3 +41,14 @@ body {
   border-radius: 10px;
   padding: 5px 10px;
 }
+
+.mat-card-content, .mat-card-header {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 0px;
+}
+
+

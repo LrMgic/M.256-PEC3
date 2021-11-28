@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ChargeAnimation } from 'src/app/Animations/animaciones';
 import { AppState } from 'src/app/app.reducers';
 import { CategoryDTO } from 'src/app/Category/models/category.dto';
 import * as CategoriesAction from '../../../Category/actions';
@@ -19,17 +20,7 @@ import { PostDTO } from '../../models/post.dto';
   selector: 'app-post-form',
   templateUrl: './post-form.component.html',
   styleUrls: ['./post-form.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state(
-        'void',
-        style({
-          opacity: 0.2,
-        })
-      ),
-      transition('void <=> *', animate(1500)),
-    ]),
-  ],
+  animations: [ChargeAnimation],
 })
 export class PostFormComponent implements OnInit {
   post: PostDTO;
